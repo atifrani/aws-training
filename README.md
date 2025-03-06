@@ -204,8 +204,15 @@ An AWS Security Group is a virtual firewall that controls inbound and outbound t
 
 ![alt text](images/img15.png)
 
-# AWS Security IAM : https://github.com/atifrani/aws-training/tree/main/IAM
+# AWS Security IAM :   
+https://github.com/atifrani/aws-training/tree/main/IAM
 
 * AWS Identity and Access Management (IAM)
 * IAM Users and groups
 * IAM Roles and Policy
+
+# AWS Processing Services:
+
+* AWS Elastic Cloud Compute (EC2),  https://github.com/atifrani/aws-training/tree/main/EC2
+* AWS Lambda, https://github.com/atifrani/aws-training/tree/main/LAMBDA
+
