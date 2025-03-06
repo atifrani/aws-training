@@ -202,7 +202,7 @@ An AWS Security Group is a virtual firewall that controls inbound and outbound t
     * Block all other inbound access.
     * Allow outbound traffic to the application server.
 
-![alt text](images/img14.png)
+![alt text](images/img15.png)
 
 # AWS Security IAM : 
 
