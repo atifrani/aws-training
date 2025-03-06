@@ -48,3 +48,14 @@ Suppose we have EC2 instance that need access to files wthin S3 bucket
     * Attach the IAM policy to the role to allow EC2 to access the S3 bucket.  
 
 ![alt text](../images/img19.png)
+
+## AWS CLI install instructions:
+
+The AWS Command Line Interface (AWS CLI) is a unified tool to manage your AWS services. With just one tool to download and configure, you can control multiple AWS services from the command line and automate them through scripts.  
+
+For installation instructions, go to this link: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+## Configure AWS CLI:
+
+For configuration instructions, go to this link
+https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
