@@ -44,7 +44,7 @@ import logging
 
 
 # Create IAM client
-session = boto3.Session(profile_name='axelt')
+session = boto3.Session(profile_name='default')
 iam = session.client('iam')
 logger = logging.getLogger(__name__)
 
@@ -79,7 +79,7 @@ import logging
 
 
 # Create IAM client
-session = boto3.Session(profile_name='axelt')
+session = boto3.Session(profile_name='default')
 iam = session.client('iam')
 logger = logging.getLogger(__name__)
 
