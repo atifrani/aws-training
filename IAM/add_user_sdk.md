@@ -24,7 +24,7 @@ def create_user(user_name):
     """
     try:
         user = iam.create_user(UserName=user_name)
-        logger.info("Created user %s.", user.name)
+        logger.info("Created user %s.", user_name)
     except ClientError:
         logger.exception("Couldn't create user %s.", user_name)
         raise
