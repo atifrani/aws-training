@@ -1,13 +1,13 @@
 #!/bin/bash
 # Update system packages
-yum update -y
+sudo yum update -y
 
 # Install Apache web server
-yum install -y httpd
+sudo yum install -y httpd
 
 # Start the Apache service and enable it at boot
-systemctl start httpd
-systemctl enable httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
 
 # Create a sample webpage
 echo "<h1>Welcome to My EC2 Instance!</h1>" > /var/www/html/index.html
