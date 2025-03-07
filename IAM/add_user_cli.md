@@ -6,14 +6,14 @@ An IAM user is an identity with long-term credentials that is used to interact w
 
 ```
 aws iam create-user \
-    --user-name Mark \
+    --user-name Mark 
 ```
 
 ## Attach an IAM managed policy to a user:
 
 ```
 aws iam attach-user-policy \
-    --user-name Mark \
+    --user-name Mark 
     --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess 
 
 ```
