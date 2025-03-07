@@ -7,8 +7,6 @@ An IAM user is an identity with long-term credentials that is used to interact w
 ```
 aws iam create-user \
     --user-name Mark \
-    --tags '{"Key": "projet", "Value": "training"}' \
-    --profile axelt
 ```
 
 ## Attach an IAM managed policy to a user:
@@ -16,8 +14,7 @@ aws iam create-user \
 ```
 aws iam attach-user-policy \
     --user-name Mark \
-    --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess \
-    --profile axelt
+    --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess 
 
 ```
 
@@ -27,8 +24,7 @@ aws iam attach-user-policy \
 aws iam create-user \
     --user-name James \
     --tags '{"Key": "projet", "Value": "training"}' \
-    --permissions-boundary arn:aws:iam::aws:policy/AmazonS3FullAccess \
-    --profile axelt
+    --permissions-boundary arn:aws:iam::aws:policy/AmazonS3FullAccess
 ```
 
 
@@ -36,8 +32,7 @@ aws iam create-user \
 
 ```
 aws iam list-attached-user-policies \
-    --user-name Mark \
-    --profile axelt
+    --user-name Mark
 ```
 
 ## Set an initial password for an IAM user
@@ -46,8 +41,7 @@ aws iam list-attached-user-policies \
 aws iam create-login-profile \
     --user-name Mark \
     --password myP@ssw0rd \
-    --password-reset-required \
-    --profile axelt
+    --password-reset-required 
 ```
 
 ## Delete an IAM user:  
