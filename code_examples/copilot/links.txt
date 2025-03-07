@@ -1,0 +1,1 @@
+https://aws.github.io/copilot-cli/docs/getting-started/first-app-tutorial/

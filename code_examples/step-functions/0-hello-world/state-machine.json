@@ -1,0 +1,50 @@
+{
+  "Comment": "A Hello World example of the Amazon States Language using Pass states",
+  "StartAt": "Lambda Invoke",
+  "States": {
+    "Lambda Invoke": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "Payload.$": "$",
+        "FunctionName": "<ENTER FUNCTION NAME HERE>"
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException",
+            "Lambda.TooManyRequestsException"
+          ],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "Choice State"
+    },
+    "Choice State": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$",
+          "StringMatches": "*Stephane*",
+          "Next": "Is Teacher"
+        }
+      ],
+      "Default": "Not Teacher"
+    },
+    "Is Teacher": {
+      "Type": "Pass",
+      "Result": "Woohoo!",
+      "End": true
+    },
+    "Not Teacher": {
+      "Type": "Fail",
+      "Error": "ErrorCode",
+      "Cause": "Stephane the teacher wasn't found in the output of the Lambda Function"
+    }
+  }
+}
