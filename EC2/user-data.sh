@@ -10,4 +10,6 @@ sudo systemctl start httpd
 sudo systemctl enable httpd
 
 # Create a sample webpage
+sudo touch /var/www/html/index.html
+sudo chmod 777 /var/www/html/index.html
 echo "<h1>Welcome to My EC2 Instance!</h1>" > /var/www/html/index.html
