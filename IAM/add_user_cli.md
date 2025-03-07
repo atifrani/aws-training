@@ -37,5 +37,10 @@ aws iam create-login-profile --user-name Mark --password myP@ssw0rd --password-r
 ## Delete an IAM user:  
 
 ```
-aws iam delete-user --user-name Mark 
+aws iam delete-login-profile --user-name mark
+aws iam detach-user-policy --user-name Mark --policy-arn  arn:aws:iam::aws:policy/AmazonS3FullAccess
+aws iam delete-user --user-name Mark
+
+
+aws iam delete-user --user-name james 
 ```
