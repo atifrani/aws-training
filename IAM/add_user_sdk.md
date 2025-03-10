@@ -10,7 +10,7 @@ from botocore.exceptions import ClientError
 import logging
 
 # Create IAM client
-session = boto3.Session(profile_name='axelt')
+session = boto3.Session(profile_name='default')
 iam = session.client('iam')
 logger = logging.getLogger(__name__)
 
@@ -24,7 +24,7 @@ def create_user(user_name):
     """
     try:
         user = iam.create_user(UserName=user_name)
-        logger.info("Created user %s.", user.name)
+        logger.info("Created user %s.", user_name)
     except ClientError:
         logger.exception("Couldn't create user %s.", user_name)
         raise
@@ -44,7 +44,7 @@ import logging
 
 
 # Create IAM client
-session = boto3.Session(profile_name='axelt')
+session = boto3.Session(profile_name='default')
 iam = session.client('iam')
 logger = logging.getLogger(__name__)
 
@@ -79,7 +79,7 @@ import logging
 
 
 # Create IAM client
-session = boto3.Session(profile_name='axelt')
+session = boto3.Session(profile_name='default')
 iam = session.client('iam')
 logger = logging.getLogger(__name__)
 

@@ -4,12 +4,6 @@
 
 Difficulty Level: 1
 
-Creation Date: June 8, 2020
-
-Original Author(s): [Thyago Mota](https://github.com/thyagomota)
-
-Contributor(s): [João Marcelo](https://github.com/jmhal)
-
 ## Goal
 The goal of this lab is to launch a single EC2 instance in a public subnet accessible over the Internet via SSH. [Here](../images/EC2.png) is a mind map of EC2. 
 
