@@ -1,3 +1,0 @@
-Code repo has been archived and moved to: 
-
-https://github.com/amazon-archives/serverless-app-examples/tree/master/python
