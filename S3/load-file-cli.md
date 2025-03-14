@@ -2,7 +2,7 @@
 1. Create bucket
 
 ```
-aws s3 mb atifrani-bucket
+aws s3 mb s3://atifrani-bucket
 
 aws s3 ls
 
