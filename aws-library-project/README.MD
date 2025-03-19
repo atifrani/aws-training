@@ -34,7 +34,7 @@ This allows anyone on the internet to access the server via HTTP.
 
 **Authorize Inbound SSH Traffic (Port 22)**:
 ```
-aws ec2 authorize-security-group-ingress --group-name MySecurityGroup --protocol tcp --port 22 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-name ec2-SecurityGroup --protocol tcp --port 22 --cidr 0.0.0.0/0
 ```
 This allows SSH access from anywhere.
 
@@ -46,10 +46,8 @@ aws ec2 run-instances \
     --instance-type t2.micro \
     --key-name MyKeyPair \ # Replace with your key pair name
     --security-group-ids sg-xxxxxxxx \ # Replace with the GroupId from Step before
-    --subnet-id subnet-xxxxxxxx \ # Replace with a valid subnet ID
     --count 1 \
-    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=MyEC2Instance}]'
-
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=WorkshopEC2Instance}]'
 ```
 
 **Connect to the EC2 Instance**:
@@ -63,20 +61,22 @@ Go the the aws console:
 
 # Clone or donwload the project:
 
-
+1. Install git on EC2 instance:
 
 ```
-git clone https...
+sudo yum install git -y
+```
+
+2. Clone the repository:
+
+```
+git clone https://github.com/atifrani/aws-training.git
 ```
 
 # Create python virtualenv:
 
 ```
-cd aws-library-project
-
-python -m venv venv
-
-or 
+cd aws-training/aws-library-project/
 
 python3 -m venv venv
 
@@ -85,20 +85,12 @@ python3 -m venv venv
 ## Activate the virtualenv
 
 ```
-.\venv\Scripts\activate
-
-ou 
-
 source venv/bin/activate 
 ```
 
 # Install the dependencies:
 
 ```
-pip install -r requierements.txt
-
-or 
-
 pip3 install -r requirements.txt
 ```
 # Test the applicaiton localy

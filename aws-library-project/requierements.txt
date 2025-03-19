@@ -1,6 +1,5 @@
 fastapi 
 uvicorn 
-sqlalchemy 
-sqlite3
+sqlalchemy
 requests 
 streamlit
