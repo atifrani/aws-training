@@ -9,11 +9,11 @@ import os
 app = FastAPI()
 
 # Database configuration
-DB_USER = os.getenv("DB_USER", "your_db_user")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "your_db_password")
-DB_HOST = os.getenv("DB_HOST", "your-db-instance.rds.amazonaws.com")
-DB_NAME = os.getenv("DB_NAME", "your_db_name")
-DB_PORT = os.getenv("DB_PORT", "5432")
+DB_USER = "your_db_user"
+DB_PASSWORD = "your_db_password"
+DB_HOST = "your-db-instance.rds.amazonaws.com"
+DB_NAME = "your_db_name"
+DB_PORT = "5432"
 
 DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
@@ -104,4 +104,4 @@ def delete_user(name: str, db: Session = Depends(get_db)):
 # Run API with Uvicorn
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)

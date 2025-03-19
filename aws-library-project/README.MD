@@ -93,22 +93,98 @@ source venv/bin/activate
 ```
 pip3 install -r requirements.txt
 ```
-# Test the applicaiton localy
+
+## Launch the Frontend:
+
+on the ec2 terminal run this command:
+
+```
+streamlit run frontend.py
+```
+Visite this url **http://ec2-pulic-ip:8501/**  # replace ec2-pulic-ip with the public ip on your ec2 instance.
+
+![alt text](images/frontend.png)
+
+* **Hints**:
+If your web page is not displaying, check that traffic is open between your computer and your EC2 instance.
+
+
+We already have the streamlit web app frontend available, now we need to connect the frontend ton the backend.
+I you try any action on the frentend, you get error because the backend is not available.
+Stop the frontend by clicking on **CTRL + C**.
 
 ## Launch the backend:
 
-Open a terminal and run this command:
+Before starting your backend application, you need to make some update.
+Open the backend file.
 
 ```
-uvicorn backend:app --reload
+nano backend.py
 ```
-visite this url **http://127.0.0.1:8000/docs**
+Update the information relate to your RDS Database. You need to restart you RDS database first.  
+To save the file, click on **CRTL + X** and click on **ENTER**
 
-## Launch the Frontend:
+1. Install Ngnix:
+
+```
+sudo yum install ngnix -y
+```
+
+2. Start Ngnix
+```
+sudo systemctl start nginx
+sudo systemctl enable nginx
+```
+
+3. Configure Fastapi service:
+
+```
+sudo nano /etc/systemd/system/fastapi.service
+```
+
+Copy and past the following content:
+
+```
+[Unit]
+   Description=FastAPI application
+   After=network.target
+
+   [Service]
+   User=ec2-user
+   WorkingDirectory=/home/ec2-user/aws-training/aws-library-project
+   ExecStart=/home/ec2-user/aws-training/aws-library-project/venv/bin/uvicorn backend:app --host 0.0.0.0 --port 8000
+   Restart=always
+
+   [Install]
+   WantedBy=multi-user.target
+```
+
+To save the file, click on **CRTL + X** and click on **ENTER**
+
+3. Start the FastAPI service:
+
+```
+   sudo systemctl daemon-reload
+   sudo systemctl enable fastapi
+   sudo systemctl start fastapi
+   sudo systemctl status fastapi
+
+```
+
+Visite this url **http://ec2-pulic-ip:8000/docs**  # replace ec2-pulic-ip with the public ip on your ec2 instance.
+
+* **Hints**:
+If your web page is not displaying, check that traffic is open between your computer and your EC2 instance.
+
+## launch the Frontend:
 
 Open a terminal and run this command:
 
 ```
 streamlit run frontend.py
 ```
-Visite this url **http://localhost:8501/**
+
+Visite this url **http://ec2-pulic-ip:8501/**  # replace ec2-pulic-ip with the public ip on your ec2 instance.
+
+* **Hints**:
+If your web page is not displaying, check that traffic is open between your computer and your EC2 instance.
