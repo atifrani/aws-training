@@ -188,3 +188,15 @@ Visite this url **http://ec2-pulic-ip:8501/**  # replace ec2-pulic-ip with the p
 
 * **Hints**:
 If your web page is not displaying, check that traffic is open between your computer and your EC2 instance.
+
+## Test your application:
+
+Go to the frentend ui **http://ec2-pulic-ip:8501/**   
+Try the differents options that you have on the navigation panle.  
+ * Ajouter un livre
+ * rechercher un livre
+ * Emprunter un livre
+ * Gérer utilisateurs
+
+Connect to your RDS database using DBeaver and navigate to the public schema.  
+Verify that the books and users tables are created and contain data.  
